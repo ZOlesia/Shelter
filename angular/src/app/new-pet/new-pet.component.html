@@ -1,0 +1,75 @@
+<form (submit)="addOnePet()" class="bg-light  mx-auto border border-info" style="height: 780px;">
+
+  <p style="margin: 75px 0 0 125px">Know of a pet needing a home? </p>
+
+    <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+        <label for="newPet.name">Pet Name</label>
+        <input type="text" class = "form-control" name="newPet.name" placeholder="Name.." required minlength="3"  [(ngModel)] = "newPet.name" #name="ngModel">
+    </div>
+
+    <div *ngIf = "err" class="alert alert-danger">{{err}}</div>
+    <div *ngIf="name.invalid && (name.dirty || !name.untouched)"
+        class="alert alert-danger">
+        <div *ngIf="name.errors.required">
+        Pet Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+        Name must be at least 3 characters long.
+        </div>
+    </div>
+
+    <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+        <label for="newPet.type">Pet Type</label>
+        <input type="text" class = "form-control" name="newPet.type" placeholder="Type.." required minlength="3"  [(ngModel)] = "newPet.type" #type="ngModel">
+    </div>
+
+    <div *ngIf="type.invalid && (type.dirty || !type.untouched)"
+        class="alert alert-danger">
+        <div *ngIf="type.errors.required">
+        Type is required.
+        </div>
+        <div *ngIf="type.errors.minlength">
+        Type must be at least 3 characters long.
+        </div>
+    </div>
+
+
+    <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+        <label for="newPet.description">Description</label>
+        <input type="text" class = "form-control" name="newPet.description" placeholder="Description.." required minlength="3"  [(ngModel)] = "newPet.description" #description="ngModel">
+    </div>
+
+    <div *ngIf="description.invalid && (description.dirty || !description.untouched)"
+        class="alert alert-danger">
+        <div *ngIf="description.errors.required">
+            Description is required.
+        </div>
+        <div *ngIf="description.errors.minlength">
+            Description must be at least 3 characters long.
+        </div>
+    </div>
+
+
+    <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+        <label for="skill1">Skill 1: </label>
+        <input type="text" class = "form-control" name="skill1" placeholder="Skill.." [(ngModel)] = "skill1">
+    </div>
+    <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+        <label for="skill2">Skill 2: </label>
+        <input type="text" class = "form-control" name="skill2" placeholder="Skill.." [(ngModel)] = "skill2">
+    </div>
+    <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+        <label for="skill3">Skill 3: </label>
+        <input type="text" class = "form-control" name="skill3" placeholder="Skill.." [(ngModel)] = "skill3">
+    </div>
+
+
+    <input type="submit" value="Add" class="btn btn-success float-right" [disabled]="!name.valid || !type.valid || !description.valid">
+    <button [routerLink] = "['/pets']" class="btn btn-primary float-right" >Cancel</button>
+</form>
+
+
+
+    
+
+

@@ -1,0 +1,18 @@
+<div *ngIf = "pet">
+  
+
+  <p class="font-weight-bold"> Details about {{pet.name}}</p>
+  <p><span class="font-weight-bold">Type:</span>  {{pet.type}}</p>
+  <p><span class="font-weight-bold">Description: </span>{{pet.description}}</p>
+  <p class="font-weight-bold">Skills: </p>
+    <p>{{pet.skills[0]}}</p>
+    <p>{{pet.skills[1]}}</p>
+    <p>{{pet.skills[2]}}</p>
+
+  <p><span class="font-weight-bold">Likes:</span> {{pet.likes}}</p>
+
+  <button (click)="like()" class="btn btn-danger" onclick="this.disabled=true" style="margin-right: 5px;">Like this pet</button>
+  <button (click)="delete()" class="btn btn-warning" style="margin-right: 5px;">Adop this pet</button>
+  <button [routerLink]="['/pets']" class="btn btn-info">Home</button>
+</div>
+

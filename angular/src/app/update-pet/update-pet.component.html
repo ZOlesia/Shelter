@@ -1,0 +1,69 @@
+<div *ngIf="updatePet">
+<form (submit)="updateOnePet()" class="bg-light  mx-auto border border-info" style="height: 780px;">
+  <p style="margin: 75px 0 0 125px">Edit this pet </p>
+  <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+      <label for="updatePet.name">Pet Name</label>
+      <input type="text" class = "form-control" name="updatePet.name" placeholder="Name.." required minlength="3"  [(ngModel)] = "updatePet.name" #name="ngModel">
+  </div>
+  <div *ngIf = "err" class="alert alert-danger">{{err}}</div>
+  <div *ngIf="name.invalid && (name.dirty || !name.untouched)"
+    class="alert alert-danger">
+      <div *ngIf="name.errors.required">
+      Pet Name is required.
+      </div>
+      <div *ngIf="name.errors.minlength">
+      Name must be at least 3 characters long.
+      </div>
+  </div>
+
+  <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+      <label for="updatePet.type">Pet Type</label>
+      <input type="text" class = "form-control" name="updatePet.type" placeholder="Type.." required minlength="3"  [(ngModel)] = "updatePet.type" #type="ngModel">
+  </div>
+
+  <div *ngIf="type.invalid && (type.dirty || !type.untouched)"
+    class="alert alert-danger">
+      <div *ngIf="type.errors.required">
+      Type is required.
+      </div>
+      <div *ngIf="type.errors.minlength">
+      Type must be at least 3 characters long.
+      </div>
+  </div>
+
+
+  <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+      <label for="updatePet.description">Description</label>
+      <input type="text" class = "form-control" name="updatePet.description" placeholder="Description.." required minlength="3"  [(ngModel)] = "updatePet.description" #description="ngModel">
+  </div>
+
+  <div *ngIf="description.invalid && (description.dirty || !description.untouched)"
+  class="alert alert-danger">
+    <div *ngIf="description.errors.required">
+        Description is required.
+    </div>
+    <div *ngIf="description.errors.minlength">
+        Description must be at least 3 characters long.
+    </div>
+  </div>
+
+
+  <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+      <label for="skill1">Skill 1: </label>
+      <input type="text" class = "form-control" name="skill1" placeholder="Skill.." [(ngModel)] = "skill1">
+  </div>
+  <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+      <label for="skill2">Skill 2: </label>
+      <input type="text" class = "form-control" name="skill2" placeholder="Skill.." [(ngModel)] = "skill2">
+  </div>
+  <div class="form-group col-8 ml-50" style="margin: auto; margin-top: 25px;">
+      <label for="skill3">Skill 3: </label>
+      <input type="text" class = "form-control" name="skill3" placeholder="Skill.." [(ngModel)] = "skill3">
+  </div>
+
+
+  <input type="submit" value="Edit" class="btn btn-success float-right" [disabled]="!name.valid || !type.valid || !description.valid">
+  <button routerLink = '/pets/details/{{petId}}' class="btn btn-primary float-right" >Cancel</button>
+</form>
+
+</div>
